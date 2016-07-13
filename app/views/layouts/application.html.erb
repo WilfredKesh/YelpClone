@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YelpDemo</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <!-- Latest compiled and minified CSS -->
+  <%= render 'layouts/bootstrapcdn' %>
+</head>
+<body>
+
+<ul class="nav navbar-nav">
+  <li><a href="/pages/about">About</a></li>
+  <li><a href="/pages/contact">Contact</a></li>	
+</ul>
+
+<%= render 'layouts/header' %>
+
+<%= yield %>
+
+<% render 'layouts/footer' %>
+</body>
+</html>
