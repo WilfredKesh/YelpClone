@@ -28,7 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -40,5 +40,8 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 end
 
+gem 'rails_12factor', group: :production
+gem 'pg', group: :production
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
