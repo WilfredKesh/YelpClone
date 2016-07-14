@@ -8,6 +8,8 @@
 
 	  <%= @restaurant.name %>
 	</h3>
+	 <div class="star-rating" data-score= <%= @average_rating %> ></div>
+	 <p><%= "#{@reviews.length} reviews" %></p>
 
 	<p>
 	  <strong>Address:</strong>
@@ -34,10 +36,23 @@
        There are no reviews yet. Be the first one to write!
 
 	  <% else %>
-	     <% @reviews.each do |review| %>
-	        <div class="star-rating" data-score= <%=review.rating %> ></div>
-	        <p><%= review.comment %></p>
-	  <% end %>
+	     <table class="table">
+	       <tbody>
+	         <% @reviews.each do |review| %>
+	           <tr>
+	             <td>
+	                 <div class="star-rating" data-score= <%=review.rating %> ></div>
+	                 <p><%= review.comment %></p>             	
+	             </td>	           	
+	           </tr>
+
+	         <% end %>
+
+	       	
+	       </tbody>
+	     	
+	     </table> 
+	     
 
 
 	<% end %>
