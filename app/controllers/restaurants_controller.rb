@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :check_user, except: [:index, :show]
 
   # GET /restaurants
   # GET /restaurants.json
@@ -74,6 +75,13 @@ class RestaurantsController < ApplicationController
     def set_restaurant
       @restaurant = Restaurant.find(params[:id])
     end
+
+    def check_user
+       unless current_user.admin?
+           redirect_to root_url, alert: "Sorry, you do not have admin privileges!"
+       end
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
