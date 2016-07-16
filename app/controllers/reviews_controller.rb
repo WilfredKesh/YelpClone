@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:edit, :update, :destroy]
   before_action :set_restaurant
+  before_action :check_user, only: [:edit, :update, :destroy]
   before_filter :authenticate_user!
 
   # GET /reviews
@@ -61,7 +62,15 @@ class ReviewsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_review
       @review = Review.find(params[:id])
+
     end
+
+    def check_user
+      unless @review.user == current_user
+        redirect_to root_url, alert: "Sorry, this review belongs to someone else"
+      end
+    end
+
 
     def set_restaurant
       @restaurant = Restaurant.find(params[:restaurant_id])

@@ -1,6 +1,6 @@
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3 col-sm-12">
 
 	 <div ><%= image_tag @restaurant.image_url, id: "image-wrap" %></div>
 
@@ -26,11 +26,20 @@
 	  <%= link_to @restaurant.website, @restaurant.website %>
 	</p>
 
+	
+		<iframe
+		  width="300"
+		  height="300"
+		  frameborder="0" style="border:0"
+		  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDfEKx2GnCSf0ZdD7bipYBOA9S2xu1w9J4
+		    &q=<%= @restaurant.address.parameterize %>" allowfullscreen>
+		</iframe>
+
   	
   </div>
 
   <div class="col-md-9">
-    <%= link_to "Write a Review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+    <%= link_to "Write a Review", new_restaurant_review_path(@restaurant), class: "btn btn-default" %>
 
     <% if @reviews.blank? %>
        There are no reviews yet. Be the first one to write!
@@ -53,7 +62,7 @@
                      <p><%= review.created_at.strftime("%-m/%-d/%-y")  %></p>
                  </td>
 	             <td>
-	                 <div class="star-rating" data-score= <%=review.rating %> id="star-review" ></div>
+	                 <div class="star-rating" data-score= <%= review.rating %> id="star-review" ></div>
 	                 <p><%= h(review.comment).gsub(/\n/, '<br/>').html_safe %></p>   
 	                 <% if user_signed_in? %>
                        <% if (review.user == current_user) || (current_user.admin?) %>
