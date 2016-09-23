@@ -1,3 +1,11 @@
+
+body a:hover {
+    text-decoration: none;
+    background-color: rgba(0,0,0,0.0); 
+    color: #777; }
+
+
+
 .jumbotron {
   background-color: #fdf7e1;
   border: 1px solid #f2cb3b;
@@ -43,4 +51,28 @@
 .navbar{
   
  
+}
+
+
+.red{
+  color: #c41200;
+}
+
+
+.star-div{
+    float: right;
+    padding-top: 0;
+    margin-left: -25px;
+
+}
+
+
+.star-text{
+    float: right;
+    clear: right;
+    left: -70px;
+    padding-bottom: 5px;
+    position: relative;
+    top: -20px;
+
 }
